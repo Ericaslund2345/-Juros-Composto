@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		body {
+    background-color: #e1e9ec ;
+    background-image: url("e.jpg");
+    background-size: 70%;
+    background-position: right ;
+    background-repeat: repeat-y;
+    
+}
+input[type=type] {
+    
+    color: black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom-color:  #095bba ;
+    width: 25%;
+    background-color: #e1e9ec;
+   
+}
+input[type=type]:focus{
+	background-color:#5ea8fe;
+}
+form{
+	width: 75%;
+}
+h3{
+	width: 60%;
+}
+
+
+
+	</style>
+
+	
+</head>
+<body>
+	<h3>Calculadora de Juros Comportos.</h3>
+	<form name="jurosC" type="#" method="post" >
+		Investimento Inicial:<br>
+		<input type="type" name="Investimento1"> R$ <br>
+		Investimento Mensal:<br>
+		 <input type="type" name="InvestimentoM"> R$<br>
+		Taxa de Juros:<br>
+		<input type="type" name="juros" > %<br>
+		Periodo do Investimento:<br>
+		<input type="type" name="tempo" > Meses<br><br>
+
+	
+	</form>
+	<button type="button" onclick="formula()">Calcular</button>
+    
+   <p  id="resultado">Click em calcular para ver o resultado.</p>
+
+<script >
+		function formula() {
+			// body...
+			var V_inicial= jurosC.Investimento1.value;
+			var V_mensal= jurosC.InvestimentoM.value;
+			var taxa = jurosC.juros.value;
+			var Meses = jurosC.tempo.value;
+            var total ; 
+            var porcento = taxa/100;
+            var investido = V_inicial + (V_mensal * Meses);
+            var lucro;
+
+		    total = V_inicial*Math.pow((1+porcento),Meses)+V_mensal*(Math.pow((1+porcento),Meses)-1)/porcento;
+
+		    lucro = investido - total;
+
+		    document.getElementById('resultado').innerHTML="O total a receber:R$ "+total.toFixed(2)+".";
+		  
+		}
+	</script>
+	
+	
+	
+
+</body>
+</html>
